@@ -3,6 +3,9 @@ house_values
 
 practice ML project for predicting home values
 
+Based on the Kaggle Competition found at
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques
+
 Project Organization
 ------------
 
