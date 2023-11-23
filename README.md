@@ -1,7 +1,9 @@
 house_values
 ==============================
 
-practice ML project for predicting home values
+This is a practice ML project for predicting home values.  If you've stumbled here from my public 
+Github, just know that there isn't too much to see! This project is really just a place where I use a 
+nice, clean dataset in order to practice with various pieces of software.
 
 Based on the Kaggle Competition found at
 https://www.kaggle.com/c/house-prices-advanced-regression-techniques
