@@ -60,3 +60,13 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
+
+----------------------------------------------------------------------------------
+Commands required to run XGBoost model from raw data:
+
+python src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
+
+python src/models/train_model.py data/interim/train.csv models/xgboost3.json
+
+python src/models/predict_model.py data/interim/test.csv models/xgboost3.json data/processed/submission3.csv

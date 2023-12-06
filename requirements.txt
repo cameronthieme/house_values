@@ -2,7 +2,7 @@
 # -e .
 
 # my adds
-autogluon
+# autogluon
 kaggle
 pandas
 numpy
@@ -11,9 +11,10 @@ seaborn
 stats
 xgboost
 jupyter
+scikit-learn
 
 # external requirements
-# click
+click
 # Sphinx
 # coverage
 # awscli
