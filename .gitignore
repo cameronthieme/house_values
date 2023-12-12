@@ -78,11 +78,12 @@ target/
 # exclude data from source control by default
 # /data/
 # my modification: keep folders, get rid of contents
-/data/external/*
-/data/interim/*
-/data/processed/*
-/data/raw/*
-
+/data/interim/test.csv
+/data/interim/train.csv
+/data/processed/submission3.csv
+/data/raw/test.csv
+/data/raw/train.csv
+/data/raw/data_description.txt
 
 # Mac OS-specific storage files
 .DS_Store
