@@ -63,6 +63,18 @@ Project Organization
 
 
 ----------------------------------------------------------------------------------
+
+Instructions from Download
+--------------------------
+
+After cloning the repository, create, activate, and update the virtual environment.  I use the name myEnv for my virtual environment, which is already listed in the .gitignore file.
+
+Ensure that the 'make' command is usable:
+yum groupinstall "Development Tools"
+
+Download the data from Kaggle using the command:
+make getdata
+
 Commands required to run XGBoost model from raw data:
 
 python src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
