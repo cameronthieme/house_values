@@ -76,7 +76,13 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-/data/
+# /data/
+# my modification: keep folders, get rid of contents
+/data/external/*
+/data/interim/*
+/data/processed/*
+/data/raw/*
+
 
 # Mac OS-specific storage files
 .DS_Store
@@ -90,3 +96,8 @@ target/
 
 # virtual environment
 /myEnv/
+
+# trained models
+/models/xgboost.json
+/models/xgboost3.json
+/models/AutogluonModels
