@@ -12,7 +12,6 @@ PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
-else
 HAS_CONDA=True
 endif
 
@@ -29,9 +28,23 @@ requirements: test_environment
 getdata: requirements
 	$(PYTHON_INTERPRETER) src/data/get_data.py 
 
+## Clean Dataset
+cleandata: 
+	$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
+
+## train Model
+train: 
+	$(PYTHON_INTERPRETER) src/models/train_model.py data/interim/train.csv models/xgboost.json
+
+## predict
+predict: 
+	$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/test.csv models/xgboost.json data/processed/submission.csv
+
 ## Make Dataset
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
+
+
 
 ## Delete all compiled Python files
 clean:

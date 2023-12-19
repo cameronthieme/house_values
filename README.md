@@ -1,12 +1,30 @@
-house_values
+House Values Software/MLOps Project
 ==============================
 
-This is a practice ML project for predicting home values.  If you've stumbled here from my public 
-Github, just know that there isn't too much to see! This project is really just a place where I use a 
-nice, clean dataset in order to practice with various pieces of software.
+Welcome to my software/MLOps practice repo!
 
-Based on the Kaggle Competition found at
-https://www.kaggle.com/c/house-prices-advanced-regression-techniques
+This project is NOT meant to showcase my skills in machine learning.  I'm using a basic <a target="_blank" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle dataset</a> and running XGBoost on it to predict house values. There's no incredible analysis going on here. 
+
+Instead, this project gives me a place to practice new software and get used to an MLOps framework.  I'm coming out of academia, and this project helps me to develop the technical skills that are needed to make data science projects work in larger organizations.  
+
+A key element of MLOps is reproducibility, so this repo is designed to allow anybody who has cloned the repo to
+* install all dependencies
+* download the Kaggle data
+* clean the data
+* train an XGBoost model
+* and predict on the test data
+
+in exactly the same way that I did just by running a few simple commands.  This is possible using a cool tool that I learned about in doing this project called a Makefile.  You may want to create a virtual environment before calling these commands in order to avoid any compatibility issues.  
+
+Here are the commands that you need:
+
+* Install Dependencies: `make requirements`
+* Download Raw Data: `make getdata`
+* Clean Data: `make cleandata`
+* Train Model: `make train`
+* Predict Output: `make predict`
+
+
 
 Project Organization
 ------------
