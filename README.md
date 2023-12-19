@@ -20,13 +20,13 @@ in exactly the same way that I did just by running one command from the terminal
 
 This shell script runs some `make` commands that are stored in the Makefile, which in turn runs the necessary python scripts.  You may want to create a virtual environment before calling these commands in order to avoid any compatibility issues.  
 
-Here are the commands that you need:
+<!-- Here are the commands that you need:
 
 * Install Dependencies: `make requirements`
 * Download Raw Data: `make getdata`
 * Clean Data: `make cleandata`
 * Train Model: `make train`
-* Predict Output: `make predict`
+* Predict Output: `make predict` -->
 
 
 
@@ -64,7 +64,6 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
-    
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
