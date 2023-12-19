@@ -14,7 +14,11 @@ A key element of MLOps is reproducibility, so this repo is designed to allow any
 * train an XGBoost model
 * and predict on the test data
 
-in exactly the same way that I did just by running a few simple commands.  This is possible using a cool tool that I learned about in doing this project called a Makefile.  You may want to create a virtual environment before calling these commands in order to avoid any compatibility issues.  
+in exactly the same way that I did just by running one command from the terminal:
+
+`bash run_make.sh`
+
+This shell script runs some `make` commands that are stored in the Makefile, which in turn runs the necessary python scripts.  You may want to create a virtual environment before calling these commands in order to avoid any compatibility issues.  
 
 Here are the commands that you need:
 
@@ -30,10 +34,9 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Makefile           <- Makefile with commands like `make getdata` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
@@ -42,14 +45,7 @@ Project Organization
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── notebooks          <- Jupyter notebooks. These are just exploratory.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
@@ -68,10 +64,7 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
+    
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
@@ -81,22 +74,3 @@ Project Organization
 
 
 ----------------------------------------------------------------------------------
-
-Instructions from Download
---------------------------
-
-After cloning the repository, create, activate, and update the virtual environment.  I use the name myEnv for my virtual environment, which is already listed in the .gitignore file.
-
-Ensure that the 'make' command is usable:
-yum groupinstall "Development Tools"
-
-Download the data from Kaggle using the command:
-make getdata
-
-Commands required to run XGBoost model from raw data:
-
-python src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
-
-python src/models/train_model.py data/interim/train.csv models/xgboost3.json
-
-python src/models/predict_model.py data/interim/test.csv models/xgboost3.json data/processed/submission3.csv
