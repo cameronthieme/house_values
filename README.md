@@ -1,11 +1,13 @@
-House Values Software/MLOps Project
+Data Science Software Engineering Project
 ==============================
 
-Welcome to my software/MLOps practice repo!
+Welcome to my software skills development repo!
+
+Set up DS project in a production framework w/ access to cloud compute resources using Docker, ECR, S3 buckets.
 
 This project is NOT meant to showcase my skills in machine learning.  I'm using a basic <a target="_blank" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle dataset</a> and running XGBoost on it to predict house values. There's no incredible analysis going on here. 
 
-Instead, this project gives me a place to practice new software and get used to an MLOps framework.  I'm coming out of academia, and this project helps me to develop the technical skills that are needed to make data science projects work in larger organizations.  
+Instead, this project gives me a place to practice new software and get used to an SOMETHINGSOMETHING.  I'm coming out of academia, and this project helps me to develop the technical skills that are needed to make data science projects work in larger organizations.  
 
 A key element of MLOps is reproducibility, so this repo is designed to allow anybody who has cloned the repo to
 * install all dependencies

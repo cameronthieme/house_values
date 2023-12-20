@@ -96,8 +96,13 @@ target/
 .mypy_cache/
 
 # virtual environment
-/myEnv/
+/.venv
 
 # trained models
 /models/xgboost.json
 /models/AutogluonModels
+
+# docker stuff
+Dockerfile
+compose.yaml
+.dockerignore

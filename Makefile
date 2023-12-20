@@ -25,7 +25,7 @@ requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Make Dataset
-getdata: requirements
+getdata:
 	$(PYTHON_INTERPRETER) src/data/get_data.py 
 
 ## Clean Dataset
@@ -39,6 +39,12 @@ train:
 ## predict
 predict: 
 	$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/test.csv models/xgboost.json data/processed/submission.csv
+
+## setup, download, clean, train, predict 
+full_process: requirements getdata cleandata train predict
+
+## For docker: download, clean, train, predict 
+docker_process: getdata cleandata train predict
 
 ## Make Dataset
 data: requirements
