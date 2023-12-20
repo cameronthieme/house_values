@@ -80,7 +80,7 @@ target/
 # my modification: keep folders, get rid of contents
 /data/interim/test.csv
 /data/interim/train.csv
-/data/processed/submission3.csv
+/data/processed/submission.csv
 /data/raw/test.csv
 /data/raw/train.csv
 /data/raw/data_description.txt
@@ -96,9 +96,13 @@ target/
 .mypy_cache/
 
 # virtual environment
-/myEnv/
+/.venv
 
 # trained models
 /models/xgboost.json
-/models/xgboost3.json
 /models/AutogluonModels
+
+# docker stuff
+Dockerfile
+compose.yaml
+.dockerignore

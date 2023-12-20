@@ -1,21 +1,44 @@
-house_values
+Data Science Software Engineering Project
 ==============================
 
-This is a practice ML project for predicting home values.  If you've stumbled here from my public 
-Github, just know that there isn't too much to see! This project is really just a place where I use a 
-nice, clean dataset in order to practice with various pieces of software.
+Welcome to my software skills development repo!
 
-Based on the Kaggle Competition found at
-https://www.kaggle.com/c/house-prices-advanced-regression-techniques
+Set up DS project in a production framework w/ access to cloud compute resources using Docker, ECR, S3 buckets.
+
+This project is NOT meant to showcase my skills in machine learning.  I'm using a basic <a target="_blank" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle dataset</a> and running XGBoost on it to predict house values. There's no incredible analysis going on here. 
+
+Instead, this project gives me a place to practice new software and get used to an SOMETHINGSOMETHING.  I'm coming out of academia, and this project helps me to develop the technical skills that are needed to make data science projects work in larger organizations.  
+
+A key element of MLOps is reproducibility, so this repo is designed to allow anybody who has cloned the repo to
+* install all dependencies
+* download the Kaggle data
+* clean the data
+* train an XGBoost model
+* and predict on the test data
+
+in exactly the same way that I did just by running one command from the terminal:
+
+`bash run_make.sh`
+
+This shell script runs some `make` commands that are stored in the Makefile, which in turn runs the necessary python scripts.  You may want to create a virtual environment before calling these commands in order to avoid any compatibility issues.  
+
+<!-- Here are the commands that you need:
+
+* Install Dependencies: `make requirements`
+* Download Raw Data: `make getdata`
+* Clean Data: `make cleandata`
+* Train Model: `make train`
+* Predict Output: `make predict` -->
+
+
 
 Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Makefile           <- Makefile with commands like `make getdata` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
@@ -24,14 +47,7 @@ Project Organization
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── notebooks          <- Jupyter notebooks. These are just exploratory.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
@@ -50,10 +66,6 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── predict_model.py
     │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
@@ -63,22 +75,3 @@ Project Organization
 
 
 ----------------------------------------------------------------------------------
-
-Instructions from Download
---------------------------
-
-After cloning the repository, create, activate, and update the virtual environment.  I use the name myEnv for my virtual environment, which is already listed in the .gitignore file.
-
-Ensure that the 'make' command is usable:
-yum groupinstall "Development Tools"
-
-Download the data from Kaggle using the command:
-make getdata
-
-Commands required to run XGBoost model from raw data:
-
-python src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
-
-python src/models/train_model.py data/interim/train.csv models/xgboost3.json
-
-python src/models/predict_model.py data/interim/test.csv models/xgboost3.json data/processed/submission3.csv

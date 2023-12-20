@@ -12,7 +12,6 @@ PYTHON_INTERPRETER = python3
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
-else
 HAS_CONDA=True
 endif
 
@@ -26,12 +25,32 @@ requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Make Dataset
-getdata: requirements
+getdata:
 	$(PYTHON_INTERPRETER) src/data/get_data.py 
+
+## Clean Dataset
+cleandata: 
+	$(PYTHON_INTERPRETER) src/features/build_features.py data/raw/train.csv data/raw/test.csv data/interim/train.csv data/interim/test.csv
+
+## train Model
+train: 
+	$(PYTHON_INTERPRETER) src/models/train_model.py data/interim/train.csv models/xgboost.json
+
+## predict
+predict: 
+	$(PYTHON_INTERPRETER) src/models/predict_model.py data/interim/test.csv models/xgboost.json data/processed/submission.csv
+
+## setup, download, clean, train, predict 
+full_process: requirements getdata cleandata train predict
+
+## For docker: download, clean, train, predict 
+docker_process: getdata cleandata train predict
 
 ## Make Dataset
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
+
+
 
 ## Delete all compiled Python files
 clean:
