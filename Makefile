@@ -56,7 +56,7 @@ s3_upload:
 	aws s3 cp data/processed/submission.csv s3://house-project-cam
 
 ## For S3: requirements, clean, train, predict 
-s3_process: requirements s3_download_train s3_download_test cleandata train predict
+s3_process: requirements s3_download_train s3_download_test cleandata train predict s3_upload
 
 ## Make Dataset
 data: requirements
