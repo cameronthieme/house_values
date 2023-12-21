@@ -84,6 +84,7 @@ target/
 /data/raw/test.csv
 /data/raw/train.csv
 /data/raw/data_description.txt
+/data/raw/sample_submission.csv
 
 # Mac OS-specific storage files
 .DS_Store
@@ -106,3 +107,4 @@ target/
 Dockerfile
 compose.yaml
 .dockerignore
+

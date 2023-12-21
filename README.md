@@ -31,7 +31,6 @@ This shell script runs some `make` commands that are stored in the Makefile, whi
 * Predict Output: `make predict` -->
 
 
-
 Project Organization
 ------------
 
