@@ -22,7 +22,7 @@ endif
 ## Install Python Dependencies
 requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	$(PYTHON_INTERPRETER) -m pip install --no-cache-dir -r requirements.txt
 
 ## Make Dataset
 getdata:
@@ -43,8 +43,20 @@ predict:
 ## setup, download, clean, train, predict 
 full_process: requirements getdata cleandata train predict
 
-## For docker: download, clean, train, predict 
-docker_process: cleandata train predict
+## download training data from S3 bucket
+s3_download_train:
+	aws s3api get-object --bucket house-project-cam --key train.csv data/raw/train.csv
+
+## download test data from S3 bucket
+s3_download_test:
+	aws s3api get-object --bucket house-project-cam --key test.csv data/raw/test.csv
+
+## upload submission to S3 bucket
+s3_upload:
+	aws s3 cp data/processed/submission.csv s3://house-project-cam
+
+## For S3: requirements, clean, train, predict 
+s3_process: requirements s3_download_train s3_download_test cleandata train predict
 
 ## Make Dataset
 data: requirements
