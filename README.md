@@ -22,7 +22,7 @@ I also implemented this same set of tasks using several different technologies. 
 
 The instructions given here will work on a Linux setting. In particular, I have designed them for use with a Linux EC2 instance that has been initialized with 29Gb of memory (just under the free limit).  
 
-## Method 1: Cloning this Repo
+## Method 1: Cloning this Repo and Download from Kaggle
 
 This method is super simple. All you need to do is clone this repo, add a `.env` file with your kaggle credentials,  and run one make command:
 ```
@@ -91,11 +91,19 @@ The prediction data will now be at myDir/submission.csv.
 
 ## Method 3: Using S3 Buckets
 
-In this method, we will download the raw data from an S3 bucket and upload the final prediction back to the same S3 bucket.
+In this method, we will download the raw data from an S3 bucket and upload the final prediction back to the same S3 bucket. This will involve cloning the repo like in Method 1 but here we will not use Kaggle; one benefit is that there's no need to set up a `.env` file.
 
-To start, make sure that the EC2 instance that you're running on has been given permissions to access S3 buckets.  This can be done when initializing the EC2 instance under "Advanced Details" and "Select IAM Instance Profile".  Set use case to "EC2" and Permission Policies to "AmazonS3FullAccess".
+<!-- To start, make sure that the EC2 instance that you're running on has been given permissions to access S3 buckets.  This can be done when initializing the EC2 instance under "Advanced Details" and "Select IAM Instance Profile".  Set use case to "EC2" and Permission Policies to "AmazonS3FullAccess". -->
 
-
+Clone the repo and navigate there (for step-by-step instructions see Method 1).  Create and activate a python virtual environment.  Then run the following command:
+```
+make s3_process
+```
+The model predictions will be at
+```
+data/processed/submission.csv
+```
+but it will also be uploaded to the house-project-cam S3 bucket!
 
 Project Organization
 ------------
