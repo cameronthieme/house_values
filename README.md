@@ -89,6 +89,14 @@ sudo docker run -v ./.env:/.env -v ./myDir:/app/data/processed public.ecr.aws/g1
 ```
 The prediction data will now be at myDir/submission.csv.
 
+## Method 3: Using S3 Buckets
+
+In this method, we will download the raw data from an S3 bucket and upload the final prediction back to the same S3 bucket.
+
+To start, make sure that the EC2 instance that you're running on has been given permissions to access S3 buckets.  This can be done when initializing the EC2 instance under "Advanced Details" and "Select IAM Instance Profile".  Set use case to "EC2" and Permission Policies to "AmazonS3FullAccess".
+
+
+
 Project Organization
 ------------
 
