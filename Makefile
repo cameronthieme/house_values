@@ -44,7 +44,7 @@ predict:
 full_process: requirements getdata cleandata train predict
 
 ## For docker: download, clean, train, predict 
-docker_process: getdata cleandata train predict
+docker_process: cleandata train predict
 
 ## Make Dataset
 data: requirements
